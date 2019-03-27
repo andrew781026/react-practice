@@ -1,23 +1,41 @@
 import React from 'react';
 import {Grid, GridToolbar, GridColumn as Column} from '@progress/kendo-react-grid';
+import {defineFont} from '@progress/kendo-drawing/pdf';
 import {GridPDFExport} from '@progress/kendo-react-pdf';
 import {filterBy} from '@progress/kendo-data-query';
 import {sampleProducts} from '../datas/sample-products.jsx';
+
 
 class FilterGrid extends React.Component {
 
     gridPDFExport;
 
-    state = {
-        filter: {
+    state = {};
+
+    setFilter = () => {
+
+        const filter = {
             logic: "and",
             filters: [
                 {field: "ProductName", operator: "contains", value: "Chef"}
             ]
-        }
+        };
+
+        this.setState({filter});
     };
 
     exportPDF = () => {
+
+        // 微軟正黑體 TTF
+        const Microsoft_JhengHei_Url = "http://cloud.ziti8.cn/fonts/weiruan/%E5%BE%AE%E8%BD%AF%E6%AD%A3%E9%BB%91%E4%BD%93.ttf";
+
+        defineFont({
+            "DejaVu Sans": Microsoft_JhengHei_Url,
+            "DejaVu Sans|Bold": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+            "DejaVu Sans|Bold|Italic": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "DejaVu Sans|Italic": "https://kendo.cdn.telerik.com/2016.2.607/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
+        });
+
 
         const saveFunc = () => {
             this.gridPDFExport.save(sampleProducts);
@@ -42,6 +60,13 @@ class FilterGrid extends React.Component {
                 }}
             >
                 <GridToolbar>
+                    <button
+                        title="Export PDF"
+                        className="k-button k-primary"
+                        onClick={this.setFilter}
+                    >
+                        設定 篩選條件 ( Filter )
+                    </button>
                     <button
                         title="Export PDF"
                         className="k-button k-primary"

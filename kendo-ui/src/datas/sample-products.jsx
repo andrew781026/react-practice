@@ -12,14 +12,14 @@ export const sampleProducts = [
     "Discontinued": false,
     "Category": {
       "CategoryID": 1,
-      "CategoryName": "Beverages",
-      "Description": "Soft drinks, coffees, teas, beers, and ales"
+      "CategoryName": "飲料",
+      "Description": "可樂, 咖啡, 茶, 啤酒, 汽水"
     },
     "FirstOrderedOn": new Date(1996, 8, 20)
   },
   {
     "ProductID": 2,
-    "ProductName": "Chang",
+    "ProductName": "老陳",
     "SupplierID": 1,
     "CategoryID": 1,
     "QuantityPerUnit": "24 - 12 oz bottles",
@@ -163,6 +163,42 @@ export const sampleProducts = [
   },
   {
     "ProductID": 10,
+    "ProductName": "Ikura",
+    "SupplierID": 4,
+    "CategoryID": 8,
+    "QuantityPerUnit": "12 - 200 ml jars",
+    "UnitPrice": 31,
+    "UnitsInStock": 31,
+    "UnitsOnOrder": 0,
+    "ReorderLevel": 0,
+    "Discontinued": false,
+    "Category": {
+      "CategoryID": 8,
+      "CategoryName": "Seafood",
+      "Description": "Seaweed and fish"
+    },
+    "FirstOrderedOn": new Date(1996, 8, 5)
+  },
+  {
+    "ProductID": 11,
+    "ProductName": "Ikura",
+    "SupplierID": 4,
+    "CategoryID": 8,
+    "QuantityPerUnit": "12 - 200 ml jars",
+    "UnitPrice": 31,
+    "UnitsInStock": 31,
+    "UnitsOnOrder": 0,
+    "ReorderLevel": 0,
+    "Discontinued": false,
+    "Category": {
+      "CategoryID": 8,
+      "CategoryName": "Seafood",
+      "Description": "Seaweed and fish"
+    },
+    "FirstOrderedOn": new Date(1996, 8, 5)
+  },
+  {
+    "ProductID": 12,
     "ProductName": "Ikura",
     "SupplierID": 4,
     "CategoryID": 8,
