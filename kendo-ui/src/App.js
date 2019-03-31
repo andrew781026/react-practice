@@ -10,6 +10,7 @@ const App = () => (
         <a href='/TreeList'><h3>TreeList</h3></a><br/>
         <a href='/Scheduler_Remote'><h3>Scheduler_Remote</h3></a><br/>
         <a href='/Scheduler_Local'><h3>Scheduler_Local</h3></a><br/>
+        <a href='/MyScheduler'><h3>MyScheduler</h3></a><br/>
     </div>
 );
 
