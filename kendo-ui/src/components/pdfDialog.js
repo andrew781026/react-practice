@@ -22,12 +22,14 @@ class PdfDialog extends React.Component {
     render() {
 
         return (
-            <Dialog fullWidth onClose={this.handleClose} aria-labelledby="simple-dialog-title" open={this.props.open}>
+            <Dialog fullWidth onClose={this.handleClose} aria-labelledby="simple-dialog-title" open={this.props.open || false}>
                 <DialogTitle id="simple-dialog-title">預覽PDF</DialogTitle>
-                <iframe src={this.pdfUrl} height="900"/>
+                <iframe title='pdf dialog preview' src={this.pdfUrl} height="900"/>
             </Dialog>
         );
     }
 }
 
 export default PdfDialog;
+
+
