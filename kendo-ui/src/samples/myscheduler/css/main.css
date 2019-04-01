@@ -1,0 +1,66 @@
+
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-col-reverse {
+    flex-direction: column-reverse;
+}
+
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.bg-black {
+    background-color: #22292f;
+}
+
+.bg-grey-darkest {
+    background-color: #3d4852;
+}
+
+.bg-grey-darker {
+    background-color: #606f7b;
+}
+
+.bg-grey-dark {
+    background-color: #8795a1;
+}
