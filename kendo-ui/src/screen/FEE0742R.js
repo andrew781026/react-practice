@@ -3,9 +3,9 @@ import {Button} from '@material-ui/core';
 import React from "react";
 import SimpleDialog from '../components/simpleDialog';
 import PdfDialog from '../components/pdfDialog';
-import keydown, {Keys} from 'react-keydown';
+// import keydown, {Keys} from 'react-keydown';
 
-const {ENTER, TAB} = Keys; // optionally get key codes from Keys lib to check against later
+// const {ENTER, TAB} = Keys; // optionally get key codes from Keys lib to check against later
 
 class FEE0742R extends React.Component {
 
@@ -23,7 +23,7 @@ class FEE0742R extends React.Component {
         this.setState({show: false});
     };
 
-    @keydown(ENTER, TAB, 'ctrl+z') // could also be an array
+    // @keydown(ENTER, TAB, 'ctrl+z') // could also be an array
     startShowPdf = () => {
         this.setState({show: true});
     };

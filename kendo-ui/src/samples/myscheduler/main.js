@@ -30,8 +30,8 @@ class SchedulerContainer extends React.Component {
 
     getWeekArray = (date) => {
 
-        const from_date = moment(date).startOf('week');
-        const to_date = moment(date).endOf('week');
+        const from_date = moment(date).startOf('week').toDate();
+        const to_date = moment(date).endOf('week').toDate();
 
         return this.getWeeklyDateArray({startDate: from_date, endDate: to_date});
     };
@@ -64,7 +64,7 @@ class SchedulerContainer extends React.Component {
         const monthArray = this.getMonthArrayWithDate(new Date());
 
         return (
-            <table style={{border: '3px #cccccc solid;'}} cellpadding="10" border='1'>
+            <table style={{border: '3px #cccccc solid'}} cellPadding="10" border='1'>
                 <thead>
                 <tr>
                     <td>日</td>
@@ -90,16 +90,30 @@ class SchedulerContainer extends React.Component {
                         </tr>
                     )
                 })}
-                <br/><br/><br/>
+                <tr style={{height: 50}}></tr>
                 {monthArray.map(weekArray => {
                     return (
                         <tr>
                             {weekArray.map(date => {
-                                return (
-                                    <td>
-                                        <MyOneGrid date={date}/>
-                                    </td>
-                                );
+
+                                console.log('date=', date);
+
+                                if (date.getDate() === 1) {
+
+                                    return (
+                                        <td>
+                                            <MyOneGrid date={date} holiday_type='!' minus_days={9}/>
+                                        </td>
+                                    );
+
+                                } else {
+
+                                    return (
+                                        <td>
+                                            <MyOneGrid date={date}/>
+                                        </td>
+                                    );
+                                }
                             })}
                         </tr>
                     )
