@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import moment from 'moment';
 
-import './css/main.css';
-
 
 class OneGrid extends React.Component {
 
