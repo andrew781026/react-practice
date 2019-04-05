@@ -1,0 +1,10 @@
+{
+  "2019-04-01": {
+    "diff_day": 5,
+    "holiday_mark": "!"
+  },
+  "2019-04-07": {
+    "diff_day": 1,
+    "holiday_mark": "@"
+  }
+}

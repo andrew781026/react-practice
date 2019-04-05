@@ -12,21 +12,49 @@ class OneGrid extends React.Component {
         date: PropTypes.instanceOf(Date)
     };
 
-    render() {
+    state = {
+        editMode: false
+    };
 
-        const {holiday_type = '@', minus_days = '3'} = this.props;
+    onClickHandle = () => {
+        this.setState({editMode: true});
+    };
+
+    onDoubleClickHandle = () => {
+        this.setState({editMode: false});
+    };
+
+    renderInputText = (label) => {
+
+        const {date, holiday_type, minus_days} = this.props;
+
+        const currentValue = (label === 'holiday_type') ? holiday_type : minus_days;
 
         return (
-            <div className='flex flex-1 flex-col'>
+            <input type="text" size={4} value={currentValue} onChange={(e) => {
+
+                const new_holiday_type = (label === 'holiday_type') ? e.target.value : holiday_type;
+
+                const new_minus_days = (label === 'minus_days') ? e.target.value : minus_days;
+
+                this.props.handleDataChange(date, new_holiday_type, new_minus_days);
+            }}/>
+        )
+    };
+
+    render() {
+
+        return (
+            <div className='flex flex-1 flex-col' onDoubleClick={this.onDoubleClickHandle} onClick={this.onClickHandle}>
                 <div style={{display: 'flex', justifyContent: 'center', flex: 1}}>
                     <span style={{fontSize: 20}}>  {moment(this.props.date).date()}</span>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
+                <div style={{display: 'flex', flexDirection: 'row', height: 20}}>
                     <div className='flex flex-1 justify-center bg-grey-dark'>
-                        {holiday_type}
+                        {(this.state.editMode) ? this.renderInputText('holiday_type') : this.props.holiday_type}
                     </div>
                     <div style={{display: 'flex', justifyContent: 'center', flex: 1}}>
-                        {minus_days}
+                        {(this.state.editMode) ? this.renderInputText('minus_days') : this.props.minus_days}
                     </div>
                 </div>
             </div>

@@ -48,6 +48,7 @@ class FEE0404R_Header extends React.Component {
                     </Button>
                 </Grid>
                 <table style={{border: '3px #cccccc solid'}} cellPadding="10" border='1'>
+                    <tbody>
                     <tr>
                         <td className='bg-grey-lighter' style={{fontWeight: 600}}>
                             貨棧別
@@ -74,6 +75,7 @@ class FEE0404R_Header extends React.Component {
                             <input type='number'/>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         );
