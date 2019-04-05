@@ -4,6 +4,8 @@ import MyOneGrid from './onegrid';
 
 import moment from 'moment';
 
+import {Button} from "@material-ui/core";
+
 class SchedulerContainer extends React.Component {
 
     getMonthArray({year, month}) {
@@ -59,14 +61,35 @@ class SchedulerContainer extends React.Component {
         return moment(date).add(7, 'days').toDate();
     }
 
+    getMonth(date) {
+        return date.getMonth();
+    }
+
     render() {
 
-        const monthArray = this.getMonthArrayWithDate(new Date());
+        const now = new Date();
+        const thisMonth = this.getMonth(now);
+        const monthArray = this.getMonthArrayWithDate(now);
 
         return (
-            <table style={{border: '3px #cccccc solid'}} cellPadding="10" border='1'>
+            <table style={{border: '3px #cccccc solid', width: '100%'}} cellPadding="10" border='1'>
                 <thead>
-                <tr>
+                <tr className='bg-grey-lighter'>
+                    <td width= '14%'>
+                        <Button variant="contained" color="primary">
+                            上個月
+                        </Button>
+                    </td>
+                    <td width= '70%' colSpan={5} style={{fontWeight: 600, textAlign: 'center', fontSize: 20}}>
+                        <h2>2019年4月</h2>
+                    </td>
+                    <td width= '14%' align="right">
+                        <Button variant="contained" color="primary" >
+                            下個月
+                        </Button>
+                    </td>
+                </tr>
+                <tr className='bg-grey-lighter' style={{fontWeight: 600, textAlign: 'center', fontSize: 20}}>
                     <td>日</td>
                     <td>一</td>
                     <td>二</td>
@@ -81,24 +104,16 @@ class SchedulerContainer extends React.Component {
                     return (
                         <tr>
                             {weekArray.map(date => {
-                                return (
-                                    <td>
-                                        {moment(date).format('YYYY-MM-DD')}
-                                    </td>
-                                );
-                            })}
-                        </tr>
-                    )
-                })}
-                <tr style={{height: 50}}></tr>
-                {monthArray.map(weekArray => {
-                    return (
-                        <tr>
-                            {weekArray.map(date => {
 
                                 console.log('date=', date);
 
-                                if (date.getDate() === 1) {
+                                if (this.getMonth(date) !== thisMonth) {
+
+                                    return (
+                                        <td className='bg-black'/>
+                                    );
+
+                                } else if (date.getDate() === 1) {
 
                                     return (
                                         <td>

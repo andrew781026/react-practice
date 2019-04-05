@@ -13,7 +13,7 @@ const App = () => (
         <a href='/Scheduler_Remote'><h3>Scheduler_Remote</h3></a><br/>
         <a href='/Scheduler_Local'><h3>Scheduler_Local</h3></a><br/>
         <a href='/MyScheduler'><h3>MyScheduler</h3></a><br/>
-        <a href='/FEE0404M_header'><h3>FEE0404M_header</h3></a><br/>
+        <a href='/FEE0404M'><h3>FEE0404M</h3></a><br/>
     </div>
 );
 

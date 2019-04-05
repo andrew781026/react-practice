@@ -47,34 +47,34 @@ class FEE0404R_Header extends React.Component {
                         儲存
                     </Button>
                 </Grid>
-                <Grid container>
-                    <Grid item xs={4} style={{border: '3px solid grey'}}>
-                        <Grid container>
-                            <Grid className='bg-grey-darker' style={{width: 100}}>貨棧別</Grid>
-                            <Grid>
-                                <ComboBox
-                                    data={cargoLocations}
-                                    textField="text"
-                                    dataItemKey="id"
-                                    value={this.state.value}
-                                    onChange={this.handleChange}
-                                />
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={4} style={{border: '3px solid grey'}}>
-                        <Grid container>
-                            <Grid className='bg-grey-darker' style={{width: 100}}>西元</Grid>
-                            <Grid><input type='number'/></Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={4} style={{border: '3px solid grey'}}>
-                        <Grid container>
-                            <Grid className='bg-grey-darker' style={{width: 100}}>月份</Grid>
-                            <Grid><input type='number'/></Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
+                <table style={{border: '3px #cccccc solid'}} cellPadding="10" border='1'>
+                    <tr>
+                        <td className='bg-grey-lighter' style={{fontWeight: 600}}>
+                            貨棧別
+                        </td>
+                        <td>
+                            <ComboBox
+                                data={cargoLocations}
+                                textField="text"
+                                dataItemKey="id"
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                            />
+                        </td>
+                        <td className='bg-grey-lighter' style={{fontWeight: 600}}>
+                            西元
+                        </td>
+                        <td>
+                            <input type='number'/>
+                        </td>
+                        <td className='bg-grey-lighter' style={{fontWeight: 600}}>
+                            月份
+                        </td>
+                        <td>
+                            <input type='number'/>
+                        </td>
+                    </tr>
+                </table>
             </div>
         );
     }
