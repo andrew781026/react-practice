@@ -40,7 +40,10 @@ class FEE0404R_Header extends React.Component {
             <div>
                 <h1>華儲公司年度行事曆</h1>
                 <Grid container style={{margin: 10}}>
-                    <Button variant="contained" color="primary" style={{margin: 5}}>
+                    <Button variant="contained"
+                            color="primary"
+                            style={{margin: 5}}
+                            onClick={this.props.handleQueryAction}>
                         查詢
                     </Button>
                     <Button variant="contained" color="primary" style={{margin: 5}}>

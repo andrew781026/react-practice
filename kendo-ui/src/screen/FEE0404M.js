@@ -5,14 +5,22 @@ import MyScheduler from '../samples/myscheduler/main';
 
 class FEE0404M extends React.Component {
 
+    state = {
+        isQueried: false
+    };
+
+    handleQueryAction = () => {
+
+        this.setState({isQueried: true})
+    };
 
     render() {
 
         return (
             <div>
-                <FEE0404R_header/>
+                <FEE0404R_header handleQueryAction={this.handleQueryAction.bind(this)}/>
                 <br/><br/>
-                <MyScheduler/>
+                {this.state.isQueried ? <MyScheduler/> : ''}
             </div>
         );
     }

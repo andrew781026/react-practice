@@ -1,0 +1,42 @@
+{
+  "name": "fee-api",
+  "version": "0.0.1",
+  "description": "fee api server with node 8.0",
+  "main": "app.js",
+  "scripts": {
+    "migrate": "knex migrate:latest",
+    "start": "node app",
+    "test": "jest --config ./__tests__/util/jest-config.json",
+    "cross-env": "cross-env",
+    "update-db": "knex migrate:latest --knexfile ./gen/knex/knexfile.js --cwd .",
+    "update-test-db": "knex migrate:latest --knexfile ./gen/knex/knexfile.js --env test --cwd ."
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "author": "Andrew",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-request-id": "^1.4.0",
+    "gulp": "^3.9.1",
+    "gulp-help": "^1.6.1",
+    "gulp-template": "^5.0.0",
+    "jwt-simple": "^0.5.1",
+    "knex": "^0.13.0",
+    "log4js": "^2.3.1",
+    "log4js-json-layout": "^2.1.0",
+    "mysql": "^2.15.0",
+    "objection": "^0.9.0",
+    "objection-db-errors": "^1.0.0",
+    "redis": "^2.7.1",
+    "run-sequence": "^2.2.1",
+    "yargs": "^11.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "jest": "22.4.2"
+  }
+}

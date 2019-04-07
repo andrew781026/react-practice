@@ -1,0 +1,7 @@
+<%= constant.warning %>
+
+FROM mysql/mysql-server:5.7
+
+LABEL name=fee-db
+LABEL group=fee
+LABEL version=0.0.1

@@ -1,0 +1,28 @@
+<%= constant.warning %>
+
+version: '2'
+
+services:
+  db:
+    restart: always
+    image: fee-db
+    container_name: fee-db
+    build:
+      context: .
+      dockerfile: Dockerfile-db
+    environment:
+      - MYSQL_USER=<%= db.user %>
+      - MYSQL_PASSWORD=<%= db.password %>
+      - MYSQL_DATABASE=<%= db.database %>
+    ports:
+      - "<%= db.port %>:3306"
+
+  redis:
+    restart: always
+    image: fee-redis
+    container_name: fee-redis
+    build:
+      context: .
+      dockerfile: Dockerfile-redis
+    ports:
+      - "<%= redis.port %>:6379"
