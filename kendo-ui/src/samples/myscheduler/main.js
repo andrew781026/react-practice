@@ -13,12 +13,12 @@ const DateUtil = {
 
         const monthFirstDate = new Date(year, month, 1);
         const monthLastDate = moment(monthFirstDate).endOf('month');
-        const thisMonthDayAmont = monthLastDate.diff(monthFirstDate, 'days');
-        const thisMonthWeekAmont = Math.ceil(thisMonthDayAmont / 7);
+        const dayAmountOfThisMonth = monthLastDate.diff(monthFirstDate, 'days');
+        const weekAmountOfThisMonth = Math.ceil(dayAmountOfThisMonth / 7);
 
         let currentDate = monthFirstDate;
         const monthArray = [];
-        for (let i = 0; i < thisMonthWeekAmont; i++) {
+        for (let i = 0; i < weekAmountOfThisMonth; i++) {
             const weekArray = this.getWeekArray(currentDate);
             monthArray.push(weekArray);
             currentDate = this.addSevenDay(currentDate);

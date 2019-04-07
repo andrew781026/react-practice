@@ -8,7 +8,7 @@ const variables = {
         user: "root",
         password: "781026",
         multipleStatements: true,
-        debug: true,
+        debug: false,
     },
     redis: {
         host: "192.168.99.100",
