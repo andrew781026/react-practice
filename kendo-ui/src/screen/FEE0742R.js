@@ -59,6 +59,7 @@ class FEE0742R extends React.Component {
                             }}>
                         4.遠端列印
                     </Button>
+                    <a href="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf">同頁切換</a>
                 </div>
                 <div style={{display: (this.state.pdf_show) ? '' : 'none'}}>
                     <h2>預覽 PDF</h2>

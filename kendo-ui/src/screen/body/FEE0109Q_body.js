@@ -3,7 +3,7 @@ import {Grid, Button} from "@material-ui/core";
 import {ComboBox} from '@progress/kendo-react-dropdowns';
 
 
-class FEE0404R_Header extends React.Component {
+class FEE0109Q_body extends React.Component {
 
     cargoLocation = {
         C: '台北',
@@ -30,7 +30,7 @@ class FEE0404R_Header extends React.Component {
 
     render() {
 
-        // Grid 系統 => xs = 12 代表 1 個 row , 所以 xs = 4 為 3 個元件 1 row
+        // Grid 系統 => xs = 12 代表 1個 row
 
         const cargoLocations = Object.keys(this.cargoLocation).map((key) => {
             return {text: this.cargoLocation[key], id: key}
@@ -86,4 +86,4 @@ class FEE0404R_Header extends React.Component {
 }
 
 
-export default FEE0404R_Header;
+export default FEE0109Q_body;

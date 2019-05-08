@@ -1,9 +1,9 @@
 import React from "react";
 
-import FEE0404R_header from './header/FEE0404M_header';
-import MyScheduler from '../samples/myscheduler/main';
+import FEE0109Q_header from './header/FEE0109Q_header';
+import FEE0109Q_body from './body/FEE0109Q_body';
 
-class FEE0404M extends React.Component {
+class FEE0109Q extends React.Component {
 
     state = {
         isQueried: false
@@ -31,13 +31,13 @@ class FEE0404M extends React.Component {
 
         return (
             <div>
-                <FEE0404R_header handleQueryAction={this.handleQueryAction.bind(this)}/>
+                <FEE0109Q_header handleQueryAction={this.handleQueryAction.bind(this)}/>
                 <br/><br/>
-                {this.state.isQueried ? <MyScheduler/> : ''}
+                {this.state.isQueried ? <FEE0109Q_body/> : ''}
             </div>
         );
     }
 }
 
 
-export default FEE0404M;
+export default FEE0109Q;
