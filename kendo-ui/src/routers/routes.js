@@ -7,6 +7,7 @@ import Scheduler_Local from '../samples/scheduler/local';
 import MyScheduler from '../samples/myscheduler/main';
 import PivotGrid from '../samples/pivotgrid/main';
 import TreeList from '../samples/treelist/main';
+import OnBlurAndDebounce from '../samples/onBlurAndDebounce/main';
 import Spreadsheet from '../samples/spreadsheet/main';
 import FilterGrid from '../components/filter-grid';
 import FEE0404M from '../screen/FEE0404M';
@@ -28,6 +29,7 @@ export default () => {
             <Route exact path='/Spreadsheet' component={Spreadsheet}/>
             <Route exact path='/FEE0404M' component={FEE0404M}/>
             <Route exact path='/FEE0109Q' component={FEE0109Q}/>
+            <Route exact path='/OnBlurAndDebounce' component={OnBlurAndDebounce}/>
         </div>
     );
 }

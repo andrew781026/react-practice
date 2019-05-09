@@ -75,11 +75,12 @@ class FilterGrid extends React.Component {
         const sortedData = orderBy(sampleProducts, this.state.sort);
         const filteredData = filterBy(sortedData, this.state.filter);
         const pageFilteredData = filteredData.slice(this.state.skip, this.state.take + this.state.skip);
+        const editingData = pageFilteredData.map(item => ({...item, inEdit: true}));
 
         const grid = (
             <Grid
                 style={{height: '550px'}}
-                data={pageFilteredData}
+                data={editingData}
 
                 skip={this.state.skip}
                 take={this.state.take}
@@ -93,6 +94,7 @@ class FilterGrid extends React.Component {
                     this.setState({filter: e.filter});
                 }}
 
+                editField="inEdit"
                 sortable
                 sort={this.state.sort}
                 onSortChange={(e) => {
