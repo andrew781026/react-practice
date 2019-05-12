@@ -1,11 +1,17 @@
 import React from "react";
 import _ from "lodash";
 
+// Define the method directly in your class
+// 產生延遲一秒效果的 function
+// 參考資料 : https://stackoverflow.com/questions/36294134/lodash-debounce-with-react-input
+let debounce =  _.debounce(func => func(), 1000); // @returns {Function} Returns the new debounced function.
+
 class OnBlurAndDebounceComp extends React.Component {
 
     state = {
         changeValue: 0,
-        blurValue: 0
+        blurValue: 0,
+        debounce: _.debounce(func => func(), 1000)
     };
 
     handleOnBlur = () => {
@@ -18,15 +24,8 @@ class OnBlurAndDebounceComp extends React.Component {
         console.log('you are in handleOnChange');
 
         // 使用延遲一秒效果的 function
-        this.debounce();
+        this.state.debounce(this.handleApiRequestInOnChange);
     };
-
-    // Define the method directly in your class
-    // 產生延遲一秒效果的 function
-    debounce = _.debounce(() => {
-        console.log('you are in handleApiRequestInOnChange');
-        this.setState({changeValue: this.state.changeValue + 1});
-    }, 1000);
 
     handleApiRequestInOnChange = () => {
         console.log('you are in handleApiRequestInOnChange');
