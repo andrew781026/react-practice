@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+
+        function downloadPDF(){
+            var url = 'http://www.africau.edu/images/default/sample.pdf';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'blob';
+
+            xhr.onprogress = function(pe) {
+                console.log('progress');
+                if (pe.lengthComputable) {
+                    console.log((pe.loaded / pe.total) * 100);
+                }
+            };
+
+            xhr.onload = function(e) {
+                if (this.status == 200) {
+                    window.open(href=window.URL.createObjectURL(
+                        new Blob([this.response], {type: 'application/pdf'})
+                    ));
+                }
+            };
+
+            xhr.send();
+        }
+
+    </script>
+
+</head>
+<body>
+
+<button onclick="downloadPDF()"><h2>下載檔案</h2></button>
+
+</body>
+</html>

@@ -28,12 +28,21 @@ app.use(function (req, res, next) {
     next();
 });
 
+/*
 const logger = log4js.getLogger();
 require('./log4js').initLog4js({app, logger, log4js, port});
+*/
 
 app.use('/fee0404m', require('./router/fee0404m'));
 
+const publicFolder = __dirname + '/public';
+console.log('publicFolder=', publicFolder);
+
+// set public folder as site root
+app.use(express.static(publicFolder));
+
 //error handler middleware
+/*
 app.use(function (err, req, res, next) {  // do not remove next as the method signature matters...
     let status, error = {};
 
@@ -65,6 +74,7 @@ app.use(function (err, req, res, next) {  // do not remove next as the method si
     }
     res.status(status).json(error);
 });
+*/
 
 const server = app.listen(port, () => {
     console.log('fee api listening at port %s', server.address().port);

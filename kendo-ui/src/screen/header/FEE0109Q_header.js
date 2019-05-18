@@ -64,7 +64,7 @@ class FEE0109Q_header extends React.Component {
                                     <Box display="flex" flexDirection="row" bgcolor="background.paper">
                                         <Grid item xs={3}>
                                             <Box display="flex" alignItems="center" justifyContent="flex-end"
-                                                 style={{height: '48px', backgroundColor: '#D7D7D7'}}>
+                                                 style={{height: '46px', backgroundColor: '#D7D7D7'}}>
                                                 <Box pr={1}>
                                                     貨棧別
                                                 </Box>
