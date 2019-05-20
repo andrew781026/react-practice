@@ -1,7 +1,7 @@
 {
-  "name": "react-ssr",
+  "name": "react-webpack",
   "version": "1.0.0",
-  "description": "Server side rendering project",
+  "description": "use webpack to compile react",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build",

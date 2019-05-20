@@ -52,7 +52,7 @@ class FEE0109Q_header extends React.Component {
                     </Button>
                 </Grid>
                 <Grid item xs={12}>
-                    <Grid container justify="left">
+                    <Grid container>
                         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(value => (
                             <Grid key={value} item>
                                 <Box

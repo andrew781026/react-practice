@@ -1,7 +1,3 @@
-// import UserService from '../../service/user';
-import axios from 'axios';
-
-
 const Action = {
     GET_USER: 'GET_USER',
     GET_USERS: 'GET_USERS',
@@ -16,8 +12,15 @@ const ActionCreator = {
     fetchUsers() {
         return async (dispatch) => {
             try {
-                const res = await axios.get('http://react-ssr-api.herokuapp.com/users');
-                const users = res.data; // await UserService.getUsers();
+
+                const users = [
+                    {id: 1, name: '呂布'},
+                    {id: 2, name: '劉備'},
+                    {id: 3, name: '劉邦'},
+                    {id: 4, name: '項羽'},
+                    {id: 5, name: '悟空'},
+                    {id: 6, name: '張飛'},
+                ];
                 const action = {type: Action.FETCH_USERS, users};
                 dispatch(action);
                 return users;

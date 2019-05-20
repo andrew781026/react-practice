@@ -4,9 +4,6 @@ import React from "react";
 import SimpleDialog from '../components/simpleDialog';
 import PdfDialog from '../components/pdfDialog';
 import FileSaver from 'file-saver';
-// import keydown, {Keys} from 'react-keydown';
-
-// const {ENTER, TAB} = Keys; // optionally get key codes from Keys lib to check against later
 
 class FEE0742R extends React.Component {
 
@@ -29,7 +26,7 @@ class FEE0742R extends React.Component {
         this.setState({show: true});
     };
 
-    downloadAll(urls) {
+    downloadAllWithNewTab(urls) {
         let link = document.createElement('a');
 
         // link.setAttribute('download', null);
@@ -46,27 +43,6 @@ class FEE0742R extends React.Component {
         document.body.removeChild(link);
     }
 
-    xhr2DownloadAll(urls) {
-
-        let success = (response) => console.log(response);
-
-        for (let i = 0; i < urls.length; i++) {
-            this.xhr2Download(urls[i], success);
-        }
-    }
-
-    xhr2Download(url, success) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.responseType = "blob";
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
-                if (success) success(xhr.response);
-            }
-        };
-        xhr.send(null);
-    }
-
     fetchDownloadAll = async (urls) => {
         return await Promise.all(urls.map(async (url) => this.fetchDownload(url)));
     };
@@ -77,19 +53,6 @@ class FEE0742R extends React.Component {
         const blob = await response.blob();
 
         FileSaver.saveAs(blob);
-        /*
-        const href = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        document.body.appendChild(a);
-        a.style = "display: none";
-        a.href = url;
-        a.download = 'ccc.png';
-        a.click();
-        window.URL.revokeObjectURL(href);
-        document.body.removeChild(a);
-        */
-
-        return null;
     }
 
     render() {
@@ -126,43 +89,26 @@ class FEE0742R extends React.Component {
                     <Button variant="contained" color="secondary" className={classes.button}
                             onClick={async () => {
 
-                                /*
-                                FileSaver.saveAs("https://httpbin.org/image", "image.jpg");
-                                FileSaver.saveAs("http://www.africau.edu/images/default/sample.pdf", "sample.pdf");
-                                FileSaver.saveAs("https://go.microsoft.com/fwlink/?LinkID=521962", "sample.xlsx");
-                                */
-                                this.downloadAll([
+                                this.downloadAllWithNewTab([
                                     "https://httpbin.org/image",
                                     "http://www.africau.edu/images/default/sample.pdf",
                                     "https://go.microsoft.com/fwlink/?LinkID=521962"
                                 ]);
 
                             }}>
-                        5. react request API
+                        5. download files with new tab
                     </Button>
                     <Button variant="contained" color="secondary" className={classes.button}
                             onClick={async () => {
 
-                                this.xhr2DownloadAll([
-                                    "https://httpbin.org/image",
-                                    "http://www.africau.edu/images/default/sample.pdf",
-                                    "https://go.microsoft.com/fwlink/?LinkID=521962"
-                                ]);
-
-                            }}>
-                        6. use xhr2 to download file
-                    </Button>
-                    <Button variant="contained" color="secondary" className={classes.button}
-                            onClick={async () => {
-
-                                this.fetchDownloadAll([
+                                await this.fetchDownloadAll([
                                     'https://api.aqt.eucare.tw/img/aqt_banner.jpg',
                                     "http://localhost:3001/sample.pdf",
                                     "http://localhost:3001/Financial_Sample.xlsx"
                                 ]);
 
                             }}>
-                        7. use fetch to download file
+                        6. use fetch to download file
                     </Button>
                     <a href="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf">同頁切換</a>
                 </div>
