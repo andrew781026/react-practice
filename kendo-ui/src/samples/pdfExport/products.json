@@ -152,6 +152,74 @@
       "CategoryName": "Meat/Poultry",
       "Description": "Prepared meats"
     }
+  },
+  {
+    "ProductID": 10,
+    "ProductName": "手機",
+    "SupplierID": 4,
+    "CategoryID": 6,
+    "QuantityPerUnit": "18 - 500 g pkgs.",
+    "UnitPrice": 97.0000,
+    "UnitsInStock": 29,
+    "UnitsOnOrder": 0,
+    "ReorderLevel": 0,
+    "Discontinued": true,
+    "Category": {
+      "CategoryID": 6,
+      "CategoryName": "Meat/Poultry",
+      "Description": "Prepared meats"
+    }
+  },
+  {
+    "ProductID": 11,
+    "ProductName": "平板",
+    "SupplierID": 4,
+    "CategoryID": 6,
+    "QuantityPerUnit": "18 - 500 g pkgs.",
+    "UnitPrice": 97.0000,
+    "UnitsInStock": 29,
+    "UnitsOnOrder": 0,
+    "ReorderLevel": 0,
+    "Discontinued": true,
+    "Category": {
+      "CategoryID": 6,
+      "CategoryName": "Meat/Poultry",
+      "Description": "Prepared meats"
+    }
+  },
+  {
+    "ProductID": 12,
+    "ProductName": "筆電",
+    "SupplierID": 4,
+    "CategoryID": 6,
+    "QuantityPerUnit": "18 - 500 g pkgs.",
+    "UnitPrice": 97.0000,
+    "UnitsInStock": 29,
+    "UnitsOnOrder": 0,
+    "ReorderLevel": 0,
+    "Discontinued": true,
+    "Category": {
+      "CategoryID": 6,
+      "CategoryName": "Meat/Poultry",
+      "Description": "Prepared meats"
+    }
+  },
+  {
+    "ProductID": 13,
+    "ProductName": "充電線",
+    "SupplierID": 4,
+    "CategoryID": 6,
+    "QuantityPerUnit": "18 - 500 g pkgs.",
+    "UnitPrice": 97.0000,
+    "UnitsInStock": 29,
+    "UnitsOnOrder": 0,
+    "ReorderLevel": 0,
+    "Discontinued": true,
+    "Category": {
+      "CategoryID": 6,
+      "CategoryName": "Meat/Poultry",
+      "Description": "Prepared meats"
+    }
   }
 ]
 

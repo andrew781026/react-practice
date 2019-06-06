@@ -6,6 +6,7 @@ import Scheduler_Remote from '../samples/scheduler/main';
 import Scheduler_Local from '../samples/scheduler/local';
 import MyScheduler from '../samples/myscheduler/main';
 import PivotGrid from '../samples/pivotgrid/main';
+import PdfExport from '../samples/pdfExport/exportGrid';
 import TreeList from '../samples/treelist/main';
 import OnBlurAndDebounce from '../samples/onBlurAndDebounce/main';
 import Spreadsheet from '../samples/spreadsheet/main';
@@ -22,6 +23,7 @@ export default () => {
             <Route exact path='/FilterGrid' component={FilterGrid}/>
             <Route exact path='/FEE0742R' component={FEE0742R}/>
             <Route exact path='/PivotGrid' component={PivotGrid}/>
+            <Route exact path='/PdfExport' component={PdfExport}/>
             <Route exact path='/TreeList' component={TreeList}/>
             <Route exact path='/Scheduler_Remote' component={Scheduler_Remote}/>
             <Route exact path='/MyScheduler' component={MyScheduler}/>

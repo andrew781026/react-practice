@@ -9,6 +9,7 @@ const App = () => (
         <a href='/FEE0742R'><h3>FEE0742R</h3></a><br/>
         <a href='/Spreadsheet'><h3>Spreadsheet</h3></a><br/>
         <a href='/PivotGrid'><h3>PivotGrid</h3></a><br/>
+        <a href='/PdfExport'><h3>PdfExport</h3></a><br/>
         <a href='/TreeList'><h3>TreeList</h3></a><br/>
         <a href='/Scheduler_Remote'><h3>Scheduler_Remote</h3></a><br/>
         <a href='/Scheduler_Local'><h3>Scheduler_Local</h3></a><br/>
