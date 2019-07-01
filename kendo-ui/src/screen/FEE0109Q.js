@@ -1,7 +1,12 @@
 import React from "react";
 
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import ReduxGlobal from '../redux/actionReducers/global';
+
 import FEE0109Q_header from './header/FEE0109Q_header';
 import FEE0109Q_body from './body/FEE0109Q_body';
+
 
 class FEE0109Q extends React.Component {
 
@@ -29,6 +34,8 @@ class FEE0109Q extends React.Component {
 
     render() {
 
+        console.log('this.props.searchText=', this.props.searchText);
+
         return (
             <div>
                 <FEE0109Q_header handleQueryAction={this.handleQueryAction.bind(this)}/>
@@ -39,5 +46,17 @@ class FEE0109Q extends React.Component {
     }
 }
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        openAlertDialog: ReduxGlobal.ActionCreator.openAlertDialog,
+        openDataDialog: ReduxGlobal.ActionCreator.openDataDialog,
+        openLoadingMask: ReduxGlobal.ActionCreator.openLoadingMask,
+        closeLoadingMask: ReduxGlobal.ActionCreator.closeLoadingMask,
+    }, dispatch);
+}
 
-export default FEE0109Q;
+function mapStateToProps({global: {searchText}}) {
+    return {searchText}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FEE0109Q);

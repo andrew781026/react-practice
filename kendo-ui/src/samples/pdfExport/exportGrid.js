@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {PDFExport, savePDF} from '@progress/kendo-react-pdf';
+import {PDFExport, GridPDFExport, savePDF} from '@progress/kendo-react-pdf';
 import {ExcelExport} from "@progress/kendo-react-excel-export";
 import {Grid, GridColumn as Column} from '@progress/kendo-react-grid';
 
@@ -10,6 +10,7 @@ import products from './products.json';
 class PdfExportGrid extends React.Component {
 
     pdfExportComponent;
+    gridPDFExport;
     grid;
     _export;
 
@@ -33,6 +34,11 @@ class PdfExportGrid extends React.Component {
     exportPDFWithMethod = (myGrid) => {
         savePDF(ReactDOM.findDOMNode(myGrid), {paperSize: 'A4'});
     };
+
+    exportPDFWithGridPDFExport = (myGridPDFExport, data) => {
+        myGridPDFExport.save(data);
+    };
+
 
     exportPDFWithComponent = (myGridPdfExportComponent) => {
         myGridPdfExportComponent.save();
@@ -62,7 +68,12 @@ class PdfExportGrid extends React.Component {
                     </button>
                     &nbsp;
                     <button className="k-button" onClick={() => {
-                        this.exportExcelWithComponent(this._export, currentData)
+                        this.exportPDFWithGridPDFExport(this.gridPDFExport, this.state.gridData)
+                    }}>Export Pdf with GridPDFExport
+                    </button>
+                    &nbsp;
+                    <button className="k-button" onClick={() => {
+                        this.exportExcelWithComponent(this._export, this.state.gridData)
                     }}>Export Excel
                     </button>
                 </div>

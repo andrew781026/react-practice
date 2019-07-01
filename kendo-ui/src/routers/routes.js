@@ -13,6 +13,7 @@ import Spreadsheet from '../samples/spreadsheet/main';
 import FilterGrid from '../components/filter-grid';
 import FEE0404M from '../screen/FEE0404M';
 import FEE0109Q from '../screen/FEE0109Q';
+import GridGroup from '../screen/GridGroup';
 
 
 export default () => {
@@ -32,6 +33,7 @@ export default () => {
             <Route exact path='/FEE0404M' component={FEE0404M}/>
             <Route exact path='/FEE0109Q' component={FEE0109Q}/>
             <Route exact path='/OnBlurAndDebounce' component={OnBlurAndDebounce}/>
+            <Route exact path='/GridGroup' component={GridGroup}/>
         </div>
     );
 }

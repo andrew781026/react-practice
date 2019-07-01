@@ -5,7 +5,7 @@ const knexConfig = require('./gen/knex/knexfile')[process.env.NODE_ENV || 'devel
 const log4js = require('log4js');
 const {Model} = require('objection');
 const app = express();
-const port = process.argv[2] || 3001;
+const port = process.argv[2] || 8888;
 
 // Initialize knex.
 const knex = Knex(knexConfig);
@@ -42,7 +42,6 @@ console.log('publicFolder=', publicFolder);
 app.use(express.static(publicFolder));
 
 //error handler middleware
-/*
 app.use(function (err, req, res, next) {  // do not remove next as the method signature matters...
     let status, error = {};
 
@@ -67,14 +66,10 @@ app.use(function (err, req, res, next) {  // do not remove next as the method si
     let errLogMessage = err.logMessage || err.message || '';
     const logMessage = `[${req.id}][${req.ip}] ${req.method} ${req.url} ${status} ${JSON.stringify(error)}`;
 
-    if (err.logLevel) {
-        logger.error(err.logLevel, logMessage);
-    } else {
-        logger.error(logMessage);
-    }
+    console.log('in error block , httpStatus',status);
+
     res.status(status).json(error);
 });
-*/
 
 const server = app.listen(port, () => {
     console.log('fee api listening at port %s', server.address().port);
