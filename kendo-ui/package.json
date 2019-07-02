@@ -2,15 +2,6 @@
   "name": "kendoUI-practice",
   "version": "0.1.0",
   "private": true,
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -35,6 +26,7 @@
     "@progress/kendo-treelist-react-wrapper": "^2018.3.1017",
     "@progress/kendo-ui": "^2019.1.327",
     "file-saver": "^2.0.2",
+    "formik-material-ui": "0.0.16",
     "moment": "^2.24.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
@@ -48,5 +40,14 @@
   },
   "devDependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.5"
-  }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Grid, GridColumn as Column} from '@progress/kendo-react-grid';
-import {process} from '@progress/kendo-data-query';
+import {process, groupBy, aggregateBy} from '@progress/kendo-data-query';
 
 import products from '../datas/products.json';
 
@@ -26,13 +26,40 @@ class GridGroup extends React.PureComponent {
             groups.map(group => group.aggregates = this.aggregates);
         }
 
-        const result = process(products, dataState);
+        // 將資料丟給 process 做分組 , 然後將結果當作 data 交給 Grid 做顯示
+        // products 的參考資料 : https://www.telerik.com/kendo-react-ui/components/dataquery/#toc-process-helpers-for-bulk-operations
+        // const result = process(products, dataState);
+        const result = process(products, {
+            skip: 0,  // 從 第 0 筆資料開始
+            take: 10, // 只取 10 筆資料
+            group: [
+                {
+                    field: "UnitsInStock", // groupBy 欄位
+                    aggregates: [
+                        {field: 'UnitsInStock', aggregate: 'sum'}, // 加總欄位
+                        {field: 'UnitPrice', aggregate: 'average'} // 平均欄位
+                    ]
+                }
+            ]
+        });
+
+
+        const newResult = groupBy(products, [{field: "UnitsInStock"}]);
+
+
+        const aggregateByResult = aggregateBy(products, [
+            {field: 'UnitsInStock', aggregate: 'sum'},
+            {field: 'UnitPrice', aggregate: 'average'}
+        ]);
+
 
         console.log('result=', result);
+        console.log('newResult=', newResult);
+        console.log('aggregateByResult=', aggregateByResult);
         console.log('dataState=', dataState);
 
         return {
-            result: process(products, dataState),
+            result: result,
             dataState: dataState
         };
     }
@@ -75,27 +102,18 @@ class GridGroup extends React.PureComponent {
                 filterable={true}
                 sortable={true}
                 pageable={{pageSizes: true}}
-                groupable={{footer: 'visible'}}
 
                 data={this.state.result}
 
+                groupable={{footer: 'visible'}} // 加總項顯示
+                expandField="expanded"          // 可縮起個別群組
+                group={[{field: 'UnitsInStock'}]}  // groupBy 的欄位
 
-                skip={0}
-                take={10}
-                group={[
-                    {
-                        field: 'UnitsInStock',
-                        aggregates: [
-                            {field: 'UnitsInStock', aggregate: 'sum'},
-                            {field: 'UnitPrice', aggregate: 'average'}
-                        ]
-                    }
-                ]}
 
                 onDataStateChange={this.dataStateChange}
 
                 onExpandChange={this.expandChange}
-                expandField="expanded"
+
                 cellRender={this.cellRender}
             >
                 <Column field="ProductID" filterable={false} title="ID" width="50px"/>
