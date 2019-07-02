@@ -26,6 +26,11 @@ class GridGroup extends React.PureComponent {
             groups.map(group => group.aggregates = this.aggregates);
         }
 
+        const result = process(products, dataState);
+
+        console.log('result=', result);
+        console.log('dataState=', dataState);
+
         return {
             result: process(products, dataState),
             dataState: dataState
@@ -39,7 +44,7 @@ class GridGroup extends React.PureComponent {
     expandChange = (event) => {
         event.dataItem[event.target.props.expandField] = event.value;
         this.setState({
-            result: Object.assign({}, this.state.result),
+            result: {...this.state.result},
             dataState: this.state.dataState
         });
     };
@@ -73,7 +78,20 @@ class GridGroup extends React.PureComponent {
                 groupable={{footer: 'visible'}}
 
                 data={this.state.result}
-                {...this.state.dataState}
+
+
+                skip={0}
+                take={10}
+                group={[
+                    {
+                        field: 'UnitsInStock',
+                        aggregates: [
+                            {field: 'UnitsInStock', aggregate: 'sum'},
+                            {field: 'UnitPrice', aggregate: 'average'}
+                        ]
+                    }
+                ]}
+
                 onDataStateChange={this.dataStateChange}
 
                 onExpandChange={this.expandChange}

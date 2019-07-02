@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {PDFExport, GridPDFExport, savePDF} from '@progress/kendo-react-pdf';
 import {ExcelExport} from "@progress/kendo-react-excel-export";
-import {Grid, GridColumn as Column} from '@progress/kendo-react-grid';
+import {Grid, GridColumn as Column, GridToolbar} from '@progress/kendo-react-grid';
 
 import products from './products.json';
 
