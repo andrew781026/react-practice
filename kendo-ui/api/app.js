@@ -42,6 +42,8 @@ app.use('/fee0404m', require('./router/fee0404m'));
 app.use('/registorCustomer', require('./router/registorCustomer'));
 app.use('/invoiceMaster', require('./router/invoiceMaster'));
 app.use('/chargeSp', require('./router/chargeSp'));
+app.use('/urgeInvoice', require('./router/urgeInvoice'));
+app.use('/randomTable', require('./router/randomTable'));
 
 const publicFolder = __dirname + '/public';
 console.log('publicFolder=', publicFolder);

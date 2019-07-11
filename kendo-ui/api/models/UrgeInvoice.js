@@ -2,12 +2,12 @@
 
 const Model = require('objection').Model;
 
-class ChargeSp extends Model {
+class InvoiceMaster extends Model {
 
     static get tableName() {
-        return 'chargeSp';
+        return 'urgeInvoice';
     }
 
 }
 
-module.exports = ChargeSp;
+module.exports = InvoiceMaster;
