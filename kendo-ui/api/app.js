@@ -3,12 +3,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const knexConfig = require('./gen/knex/knexfile')[process.env.NODE_ENV || 'development'];
 const log4js = require('log4js');
-const {Model} = require('objection');
+const {Model, knexSnakeCaseMappers} = require('objection');
 const app = express();
 const port = process.argv[2] || 8888;
 
+// DB Columns 駝峰轉換
+// 參考資料 : https://vincit.github.io/objection.js/recipes/snake-case-to-camel-case-conversion.html
+const newKnexConfig = {
+    ...knexConfig,
+
+    // If your columns are UPPER_SNAKE_CASE you can use
+    // knexSnakeCaseMappers({ upperCase: true })
+    ...knexSnakeCaseMappers({ upperCase: true })
+};
+
 // Initialize knex.
-const knex = Knex(knexConfig);
+const knex = Knex(newKnexConfig);
 
 // Bind all Models to a knex instance. If you only have one database in
 // your server this is all you have to do. For multi database systems, see
@@ -28,12 +38,10 @@ app.use(function (req, res, next) {
     next();
 });
 
-/*
-const logger = log4js.getLogger();
-require('./log4js').initLog4js({app, logger, log4js, port});
-*/
-
 app.use('/fee0404m', require('./router/fee0404m'));
+app.use('/registorCustomer', require('./router/registorCustomer'));
+app.use('/invoiceMaster', require('./router/invoiceMaster'));
+app.use('/chargeSp', require('./router/chargeSp'));
 
 const publicFolder = __dirname + '/public';
 console.log('publicFolder=', publicFolder);
@@ -65,8 +73,6 @@ app.use(function (err, req, res, next) {  // do not remove next as the method si
 
     let errLogMessage = err.logMessage || err.message || '';
     const logMessage = `[${req.id}][${req.ip}] ${req.method} ${req.url} ${status} ${JSON.stringify(error)}`;
-
-    console.log('in error block , httpStatus',status);
 
     res.status(status).json(error);
 });

@@ -1,14 +1,13 @@
 const variables = {
     db: {
-        database: "fee",
-        host: "192.168.99.100",
-        // 參考 - https://itw01.com/H7XEKHF.html
-        // For windows - host is "ip for docker tool linux vm"
-        port: 3308,
-        user: "root",
-        password: "781026",
+        host: '192.168.44.128',
+        user: 'system',
+        password: 'qwer4321',
+        database: 'TACTDB',
+        port: 1521,
         multipleStatements: true,
-        debug: false,
+        charset: 'utf8',
+        timezone : 'UTC'
     },
     redis: {
         host: "192.168.99.100",

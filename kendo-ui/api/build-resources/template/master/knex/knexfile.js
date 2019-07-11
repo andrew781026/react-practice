@@ -4,7 +4,7 @@
 
 module.exports = {
     <%= NODE_ENV %>: {
-        client: 'mysql',
+        client: 'oracledb',
         connection: {
             host: '<%= db.host %>',
             user: '<%= db.user %>',

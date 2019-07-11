@@ -64,10 +64,6 @@ class GridGroup extends React.PureComponent {
         };
     }
 
-    dataStateChange = (event) => {
-        this.setState(this.createAppState(event.data));
-    };
-
     expandChange = (event) => {
         event.dataItem[event.target.props.expandField] = event.value;
         this.setState({
@@ -106,12 +102,9 @@ class GridGroup extends React.PureComponent {
                 data={this.state.result}
 
                 groupable={{footer: 'visible'}} // 加總項顯示
-                expandField="expanded"          // 可縮起個別群組
                 group={[{field: 'UnitsInStock'}]}  // groupBy 的欄位
 
-
-                onDataStateChange={this.dataStateChange}
-
+                expandField="expanded"          // 可縮起個別群組
                 onExpandChange={this.expandChange}
 
                 cellRender={this.cellRender}
