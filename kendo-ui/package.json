@@ -29,6 +29,7 @@
     "formik-material-ui": "0.0.16",
     "moment": "^2.24.0",
     "react": "^16.8.4",
+    "react-big-calendar": "^0.22.0",
     "react-dom": "^16.8.4",
     "react-keydown": "^1.9.8",
     "react-redux": "^6.0.1",
