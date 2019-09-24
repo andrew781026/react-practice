@@ -1,8 +1,7 @@
 import {withStyles} from '@material-ui/core/styles';
-import {Button} from '@material-ui/core';
 import React from "react";
-import FileSaver from 'file-saver';
 
+// 也許可以用 org-chart 做出比賽圖的效果 , https://www.npmjs.com/package/orgchart
 class GameGraph extends React.Component {
 
     render() {
