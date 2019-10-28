@@ -55,6 +55,7 @@ exports.addMessage = functions.https.onRequest(async (req, res) => {
 
     if (!original) res.send("請將 text 參數傳入");
     else {
+        // firebase-firestore 參考資料 : https://www.oxxostudio.tw/articles/201905/firebase-firestore.html
         // Push the new message into the Realtime Database using the Firebase Admin SDK.
         const snapshot = await admin.database().ref('/messages').push({original: original});
         // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
