@@ -19,6 +19,7 @@ const App = () => (
         <a href='/FEE0109Q'><h3>FEE0109Q</h3></a><br/>
         <a href='/OnBlurAndDebounce'><h3>OnBlurAndDebounce</h3></a><br/>
         <a href='/BigCalendar'><h3>BigCalendar</h3></a><br/>
+        <a href='/SampleQuery'><h3>SampleQuery</h3></a><br/>
     </div>
 );
 

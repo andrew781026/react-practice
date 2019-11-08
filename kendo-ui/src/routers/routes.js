@@ -15,6 +15,7 @@ import FEE0404M from '../screen/FEE0404M';
 import FEE0109Q from '../screen/FEE0109Q';
 import GridGroup from '../screen/GridGroup';
 import BigCalendar from "../screen/calender/bigCalender";
+import SampleQuery from "../screen/example/SampleQuery";
 
 
 export default () => {
@@ -36,6 +37,7 @@ export default () => {
             <Route exact path='/OnBlurAndDebounce' component={OnBlurAndDebounce}/>
             <Route exact path='/GridGroup' component={GridGroup}/>
             <Route exact path='/BigCalendar' component={BigCalendar}/>
+            <Route exact path='/SampleQuery' component={SampleQuery}/>
         </div>
     );
 }

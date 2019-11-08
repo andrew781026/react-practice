@@ -1,8 +1,7 @@
 import React from "react";
 import {Grid, Button} from "@material-ui/core";
 import {ComboBox} from '@progress/kendo-react-dropdowns';
-import {unstable_Box as Box} from '@material-ui/core/Box';
-
+import {Box} from '@material-ui/core';
 
 class FEE0109Q_header extends React.Component {
 
@@ -119,6 +118,5 @@ class FEE0109Q_header extends React.Component {
         );
     }
 }
-
 
 export default FEE0109Q_header;
